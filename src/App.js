@@ -12,6 +12,7 @@ import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
 import BoardModerator from "./components/board-moderator.component";
 import BoardAdmin from "./components/board-admin.component";
+import UserList from "./components/user-list.component";
 
 //Line 94 not /logout???
 class App extends Component {
@@ -75,6 +76,14 @@ class App extends Component {
                 </li>
               )}
 
+              {showAdminBoard && (
+                <li className="nav-item">
+                  <Link to={"/alluser"} className="nav-link">
+                    All Users
+                  </Link>
+                </li>
+              )}
+
               {currentUser && (
                 <li className="nav-item">
                   <Link to={"/user"} className="nav-link">
@@ -123,6 +132,7 @@ class App extends Component {
               <Route path="/user" component={BoardUser} />
               <Route path="/mod" component={BoardModerator} />
               <Route path="/admin" component={BoardAdmin} />
+              <Route path="/alluser" component={UserList} />
             </Switch>
           </div>
         </div>
